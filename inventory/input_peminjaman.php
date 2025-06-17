@@ -168,27 +168,39 @@
         </div>
     </div>
 
-    <div id="statusModal" class="modal-overlay" style="<?php echo ($success_message || $error_message) ? 'display: flex;' : 'display: none;'; ?>">
-        <div class="modal-content">
+    <div id="statusModal" class="modal-overlay-new" style="<?php echo ($success_message || $error_message) ? 'display: flex;' : 'display: none;'; ?>">
+        <div class="modal-content-new">
             <?php if ($success_message): ?>
-                <h2>Peminjaman Berhasil</h2>
-                <i class="fas fa-check-circle icon-success"></i>
-                <p><?php echo htmlspecialchars($success_message); ?></p>
+                <h2><?php echo $success_message; ?></h2>
+                <div class="icon-container-new success">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
             <?php elseif ($error_message): ?>
-                <h2 style="color: #dc3545;">Peminjaman Gagal</h2>
-                <i class="fas fa-times-circle" style="color: #dc3545; font-size: 4em; margin-bottom: 20px;"></i>
-                <p><?php echo htmlspecialchars($error_message); ?></p>
+                <h2 style="font-size: 1.5em; color: #dc3545;">GAGAL DISIMPAN</h2>
+                <p style="color: #555;"><?php echo htmlspecialchars($error_message); ?></p>
+                <button class="btn-red" style="margin-top: 20px;" onclick="closeModal()">OK</button>
             <?php endif; ?>
-            <button class="btn-red" onclick="closeModal()">OK</button>
         </div>
     </div>
 
     <script>
+        <?php if ($success_message): ?>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Tampilkan modal
+                const modal = document.getElementById('statusModal');
+                modal.style.display = 'flex';
+
+                // Tunggu 2 detik, lalu redirect
+                setTimeout(function() {
+                    modal.style.display = 'none';
+                    window.location.href = 'peminjaman_barang.php?status=added';
+                }, 2000); // 2000 milidetik = 2 detik
+            });
+        <?php endif; ?>
+
+        // Fungsi ini hanya untuk menutup modal error
         function closeModal() {
             document.getElementById('statusModal').style.display = 'none';
-            <?php if ($success_message): ?>
-                window.location.href = 'peminjaman_barang.php';
-            <?php endif; ?>
         }
 
         document.addEventListener('DOMContentLoaded', function() {

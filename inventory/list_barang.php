@@ -132,7 +132,7 @@
                                     echo "<td>" . htmlspecialchars($row['keterangan']) . "</td>";
                                     echo "<td class='actions'>";
                                     echo "<a href='edit_barang.php?id=" . $row['id'] . "' class='edit-btn'><i class='fas fa-edit'></i></a>";
-                                    echo "<button class='delete-btn' onclick=\"confirmDelete(" . $row['id'] . ", '" . htmlspecialchars($row['nama_barang']) . "')\"><i class='fas fa-trash-alt'></i></button>";
+                                    echo "<button class='delete-btn' onclick=\"showConfirmModal('list_barang.php?delete_id=" . $row['id'] . "')\"><i class='fas fa-trash-alt'></i></button>";
                                     echo "</td>";
                                     echo "</tr>";
                                 }
@@ -147,12 +147,57 @@
         </div>
     </div>
 
+    <div id="confirm-delete-modal" class="modal-overlay-new" style="display: none;">
+  <div class="modal-content-new">
+    <h2>Yakin Hapus ?</h2>
+    <div class="modal-footer-new">
+      <button class="btn-modal secondary" onclick="closeConfirmModal()">Tidak</button>
+      <button class="btn-modal danger" id="confirm-delete-btn">Ya</button>
+    </div>
+  </div>
+</div>
+
+<div id="success-delete-modal" class="modal-overlay-new" style="display: none;">
+  <div class="modal-content-new">
+    <h2>DATA BERHASIL DI HAPUS</h2>
+    <div class="icon-container-new delete">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </div>
+  </div>
+</div>
+
     <script>
-        function confirmDelete(id, nama) {
-            if (confirm("Apakah Anda yakin ingin menghapus barang '" + nama + "'? Ini akan menghapus semua catatan peminjaman terkait (termasuk yang sudah dikembalikan) dan tidak dapat dibatalkan. Barang tidak dapat dihapus jika masih ada peminjaman aktif.")) {
-                window.location.href = 'list_barang.php?delete_id=' + id;
-            }
+        // Fungsi untuk memunculkan modal konfirmasi
+        function showConfirmModal(deleteUrl) {
+            const modal = document.getElementById('confirm-delete-modal');
+            modal.style.display = 'flex';
+
+            // Saat tombol "Ya" diklik, arahkan ke URL hapus
+            document.getElementById('confirm-delete-btn').onclick = function() {
+                window.location.href = deleteUrl;
+            };
         }
+
+        // Fungsi untuk menutup modal konfirmasi
+        function closeConfirmModal() {
+            document.getElementById('confirm-delete-modal').style.display = 'none';
+        }
+
+        // Cek jika ada parameter status=deleted di URL (setelah redirect dari proses hapus)
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('status') === 'deleted') {
+                const modal = document.getElementById('success-delete-modal');
+                modal.style.display = 'flex';
+
+                // Sembunyikan modal setelah 2 detik
+                setTimeout(function() {
+                    modal.style.display = 'none';
+                    // Hapus parameter status dari URL agar tidak muncul lagi saat refresh
+                    window.history.replaceState({}, document.title, window.location.pathname); 
+                }, 2000);
+            }
+        });
 
         window.onload = function() {
             const urlParams = new URLSearchParams(window.location.search);
