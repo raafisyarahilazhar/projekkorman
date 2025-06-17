@@ -1,0 +1,836 @@
+/* General Body and Font Styles */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5; /* Light grey background */
+    display: flex;
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 280px; /* Slightly wider sidebar */
+    background-color: #AB0000; /* Deep red, closer to the image */
+    color: white;
+    padding: 30px 0; /* Adjust padding */
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.15); /* Stronger shadow */
+    position: fixed; /* Keep sidebar fixed */
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100; /* Ensure it's on top */
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 50px; /* More space below logo */
+}
+
+.logo-text {
+    font-size: 5em; /* Larger 'M' */
+    font-weight: 700;
+    color: white;
+    line-height: 0.8; /* Adjust line height for 'M' */
+}
+
+.nav-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-menu ul li {
+    margin-bottom: 5px; /* Less space between items */
+}
+
+.nav-menu ul li a {
+    color: rgba(255, 255, 255, 0.8); /* Slightly faded white for inactive */
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 15px 30px; /* Increased padding for menu items */
+    border-radius: 0; /* No border-radius for menu items */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 1.1em;
+}
+
+.nav-menu ul li a i {
+    margin-right: 15px; /* More space for icons */
+    font-size: 1.3em; /* Larger icons */
+}
+
+.nav-menu ul li a:hover {
+    background-color: #920000; /* Darker red on hover */
+    color: white; /* Full white on hover */
+}
+
+.nav-menu ul li.active a {
+    background-color: #920000; /* Active item background */
+    color: white; /* Active item text color */
+    font-weight: 600; /* Bold for active item */
+    border-left: 5px solid white; /* White line on the left for active */
+    padding-left: 25px; /* Adjust padding due to border */
+}
+
+/* Main Content Styles */
+.main-content {
+    flex-grow: 1;
+    margin-left: 280px; /* Space for the fixed sidebar */
+    padding: 30px;
+    background-color: #f0f2f5; /* Match body background */
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 10px 0;
+}
+
+.header h1 {
+    font-size: 2.2em; /* Slightly larger title */
+    color: #333;
+    margin: 0;
+    font-weight: 600;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Jarak antara Search Bar, Tambah Barang, dan Profil */
+    /* Jarak profil akan diatur oleh margin-left: auto pada .user-profile */
+}
+
+.search-bar {
+    display: flex;
+    background-color: #e0e2e5; /* Lighter grey background for search */
+    border-radius: 25px; /* More rounded */
+    overflow: hidden;
+    height: 45px; /* Fixed height for search bar */
+    align-items: center;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1); /* Inner shadow for depth */
+}
+
+.search-bar input {
+    border: none;
+    padding: 8px 18px; /* Adjusted padding */
+    outline: none;
+    font-size: 1em;
+    width: 220px; /* Wider input */
+    background: transparent; /* Transparent input background */
+    color: #333;
+}
+
+.search-bar input::placeholder {
+    color: #777; /* Darker placeholder text */
+}
+
+.search-bar button {
+    background-color: transparent; /* No background */
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    color: #555;
+    font-size: 1em;
+    transition: color 0.3s ease;
+}
+
+.search-bar button:hover {
+    color: #AB0000;
+}
+
+.add-item-btn {
+    background-color: #AB0000; /* Deep red */
+    color: white;
+    border: none;
+    padding: 12px 25px; /* Larger padding */
+    border-radius: 25px; /* More rounded */
+    cursor: pointer;
+    font-size: 1.05em; /* Slightly larger font */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Shadow for button */
+}
+
+.add-item-btn:hover {
+    background-color: #920000; /* Darker red on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+.add-item-btn:active {
+    transform: translateY(0);
+}
+
+.user-profile {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover; /* Pastikan gambar mengisi lingkaran */
+    border: 2px solid #AB0000; /* Mengurangi ketebalan border agar mirip gambar */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    margin-left: auto; /* Ini yang akan mendorong profil ke paling kanan */
+}
+
+.user-profile img { /* Untuk gambar di dalam .user-profile */
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: block; /* Menghilangkan spasi bawah yang mungkin muncul dengan img */
+}
+
+
+/* Tabs */
+.tabs {
+    margin-bottom: 25px;
+}
+
+.tab-button {
+    background-color: #f0f2f5; /* Match page background */
+    border: 1px solid #ddd; /* Subtle border */
+    padding: 12px 25px; /* Larger padding */
+    cursor: pointer;
+    font-size: 1.0em;
+    border-radius: 25px; /* More rounded */
+    margin-right: 15px;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    color: #555;
+    font-weight: 500;
+}
+
+.tab-button.active {
+    background-color: #AB0000; /* Deep red for active tab */
+    color: white;
+    border-color: #AB0000; /* Matching border color */
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+.tab-button:hover:not(.active) {
+    background-color: #e8eaed; /* Slightly darker on hover */
+    border-color: #ccc;
+}
+
+
+/* Table Styles */
+.content-area {
+    background-color: white; /* White background for the whole content block */
+    padding: 30px;
+    border-radius: 12px; /* More rounded corners for the content block */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Stronger shadow for the content block */
+    margin-top: 20px; /* Space from header */
+}
+
+.table-container {
+    /* No additional styling needed here as the parent .content-area handles it */
+    overflow-x: auto; /* For responsive tables */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px; /* Space from tabs */
+}
+
+table thead {
+    background-color: #f8f8f8; /* Light background for header */
+}
+
+table th,
+table td {
+    text-align: left;
+    padding: 15px 20px; /* More padding in cells */
+    border-bottom: 1px solid #f0f0f0; /* Lighter border for rows */
+    font-size: 0.95em;
+    color: #333;
+}
+
+table th {
+    color: #666; /* Darker grey for header text */
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85em; /* Smaller font for header */
+}
+
+table tbody tr:last-child td {
+    border-bottom: none; /* No border for the last row */
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #fafafa; /* Very light grey for even rows */
+}
+
+table tbody tr:hover {
+    background-color: #f5f5f5; /* Slightly darker on hover */
+}
+
+.actions {
+    white-space: nowrap; /* Prevent buttons from wrapping */
+}
+
+.actions button,
+.actions a { /* Apply to both button and anchor (for edit) */
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1em;
+    margin-right: 8px; /* Slightly less margin */
+    transition: color 0.3s ease, transform 0.2s ease;
+    padding: 5px; /* Add padding for easier clicking */
+    border-radius: 4px;
+}
+
+.actions button:last-child,
+.actions a:last-child {
+    margin-right: 0;
+}
+
+
+.actions .edit-btn {
+    color: #4CAF50; /* Brighter green */
+}
+
+.actions .edit-btn:hover {
+    color: #388E3C; /* Darker green on hover */
+    transform: translateY(-1px);
+}
+
+.actions .delete-btn {
+    color: #F44336; /* Brighter red */
+}
+
+.actions .delete-btn:hover {
+    color: #D32F2F; /* Darker red on hover */
+    transform: translateY(-1px);
+}
+
+
+/* Form Styling (re-include or adjust from previous version if needed) */
+.form-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px; /* Match content-area rounded corners */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08); /* Stronger shadow */
+    max-width: 750px; /* Adjust as needed */
+    margin: 30px auto; /* Center the form */
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px; /* More space between form groups */
+}
+
+.form-group label {
+    flex: 0 0 180px; /* Wider fixed width for labels */
+    font-weight: 500;
+    color: #333;
+    font-size: 1.05em;
+    margin-right: 20px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="date"] {
+    flex: 1;
+    padding: 12px 18px; /* Adjusted padding */
+    border: 1px solid #e0e0e0; /* Lighter border */
+    border-radius: 8px; /* Slightly rounded */
+    font-size: 1em;
+    background-color: #fcfcfc; /* Very light background for inputs */
+    color: #333;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05); /* Subtle inner shadow */
+}
+
+.form-group input[type="text"]::placeholder,
+.form-group input[type="number"]::placeholder {
+    color: #999;
+}
+
+.radio-group {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.radio-group label {
+    margin-right: 25px; /* More space between radio options */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-weight: normal;
+    color: #555;
+    flex: unset;
+    font-size: 1em;
+}
+
+.radio-group input[type="radio"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 20px; /* Larger radio button */
+    height: 20px;
+    border: 2px solid #AB0000;
+    border-radius: 50%;
+    margin-right: 10px;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    top: 1px;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.radio-group input[type="radio"]:checked {
+    background-color: #AB0000;
+    border-color: #AB0000;
+}
+
+.radio-group input[type="radio"]:checked::before {
+    content: '';
+    display: block;
+    width: 10px; /* Larger inner circle */
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px; /* More space above buttons */
+}
+
+.btn-red {
+    background-color: #AB0000;
+    color: white;
+    border: none;
+    padding: 14px 30px; /* Larger buttons */
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.05em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    text-decoration: none; /* For the Kembali link */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-red:hover {
+    background-color: #920000;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+}
+
+.btn-red:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.modal-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Slightly darker overlay */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 50px 60px; /* More padding */
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); /* Stronger shadow */
+    width: 450px; /* Wider pop-up */
+    max-width: 90%;
+    display: flex; /* Menggunakan flexbox untuk penataan vertikal */
+    flex-direction: column;
+    align-items: center; /* Pusatkan item secara horizontal dalam flex container */
+    justify-content: center; /* Pusatkan item secara vertikal dalam flex container */
+}
+
+.modal-content h2 {
+    color: #333;
+    margin-bottom: 30px; /* Spasi bawah untuk judul */
+    font-size: 2.2em; /* Larger text */
+    font-weight: 700; /* Bolder text */
+    line-height: 1.2; /* Mengatur tinggi baris untuk judul multi-baris */
+}
+
+.modal-content .icon-success {
+    /* Gaya untuk membuat lingkaran hijau dengan centang putih di tengah */
+    display: flex; /* Menggunakan flexbox untuk mempusatkan ikon centang */
+    align-items: center;
+    justify-content: center;
+    width: 100px; /* Lebar lingkaran */
+    height: 100px; /* Tinggi lingkaran */
+    background-color: #4CAF50; /* Warna hijau untuk lingkaran */
+    border-radius: 50%; /* Membuat bentuk lingkaran */
+    font-size: 4em; /* Ukuran ikon centang di dalamnya */
+    color: white; /* Warna centang putih */
+    margin: 0 auto 30px auto; /* Pusatkan lingkaran dan beri spasi bawah */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Bayangan untuk lingkaran */
+}
+
+.modal-content .fas.fa-times-circle { /* Gaya untuk ikon error (silang merah) */
+    color: #dc3545;
+    font-size: 6em;
+    margin-bottom: 30px;
+}
+
+.modal-content p { /* Gaya untuk pesan error */
+    color: #555;
+    margin-top: 20px;
+    font-size: 1.15em;
+}
+
+.modal-content .btn-red {
+    margin-top: 30px; /* Spasi atas untuk tombol OK */
+    padding: 12px 40px; /* Sesuaikan padding agar tombol lebih lebar */
+    min-width: 120px; /* Minimum lebar tombol */
+    font-size: 1.1em; /* Ukuran font tombol */
+}
+
+/* Ensure images are correctly linked */
+.user-profile img {
+    /* Make sure this path is correct relative to your HTML files */
+    /* Example: src="../assets/img/profile-placeholder.jpg" */
+}
+
+/* ... (existing global styles like body, container, sidebar, header, tabs, table, etc.) ... */
+
+/* Form Styling */
+.form-card {
+    background-color: white;
+    padding: 40px; /* Increased padding */
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08); /* Consistent shadow */
+    max-width: 800px; /* Wider form container */
+    margin: 30px auto;
+}
+
+.form-group {
+    display: flex;
+    align-items: center; /* Vertically center items */
+    margin-bottom: 25px; /* Spacing between form rows */
+}
+
+.form-group label {
+    flex: 0 0 200px; /* Fixed width for labels, adjusted for precise alignment */
+    font-weight: 500; /* Medium weight for labels */
+    color: #333;
+    font-size: 1.05em; /* Slightly larger label font */
+    margin-right: 30px; /* Space between label and input */
+    text-align: right; /* Align label text to the right */
+    padding-right: 10px; /* Small padding for visual separation */
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="date"] {
+    flex: 1; /* Input takes remaining space */
+    padding: 14px 20px; /* Increased padding for input fields */
+    border: none; /* No border for input fields */
+    border-radius: 10px; /* Slightly more rounded corners for inputs */
+    font-size: 1em;
+    background-color: #f2f2f2; /* Light grey background for input */
+    color: #333;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1); /* Inner shadow for depth */
+    outline: none; /* Remove outline on focus */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input[type="text"]::placeholder,
+.form-group input[type="number"]::placeholder,
+.form-group input[type="date"]::placeholder {
+    color: #999; /* Placeholder color */
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="number"]:focus,
+.form-group input[type="date"]:focus {
+    background-color: #e6e6e6; /* Slightly darker on focus */
+    box-shadow: inset 0 1px 5px rgba(0,0,0,0.15);
+}
+
+/* Specific Date Input Styling (to replicate calendar icon if possible, though browser dependent) */
+.form-group input[type="date"] {
+    position: relative;
+    padding-right: 40px; /* Make space for the icon */
+    -webkit-appearance: none; /* Remove default date input styling */
+    appearance: none;
+}
+
+/* This is a trick to add a custom calendar icon. May need specific font-awesome version */
+.form-group input[type="date"]::-webkit-calendar-picker-indicator {
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="%23999"><path d="M20 3h-1V1h-2v2H7V1H5v2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H4V8h16v13z"/><path d="M0 0h24v24H0z" fill="none"/></svg>') no-repeat;
+    background-size: 20px 20px;
+    background-position: center right 10px;
+    cursor: pointer;
+    opacity: 1;
+    filter: invert(0.5); /* Adjust icon color if needed */
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 40px;
+}
+.form-group input[type="date"]::-webkit-inner-spin-button,
+.form-group input[type="date"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+/* Radio Button Styling */
+.radio-group {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    gap: 30px; /* Space between radio options */
+}
+
+.radio-group label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-weight: normal; /* Override .form-group label font-weight */
+    color: #555;
+    flex: unset; /* Override flex: 0 0 200px; */
+    text-align: left; /* Align radio label text to left */
+    padding-right: 0;
+    font-size: 1em;
+}
+
+.radio-group input[type="radio"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc; /* Lighter border for unchecked */
+    border-radius: 50%;
+    margin-right: 10px;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.radio-group input[type="radio"]:checked {
+    background-color: #AB0000; /* Red for checked */
+    border-color: #AB0000;
+}
+
+.radio-group input[type="radio"]:checked::before {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Form Action Buttons */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+/* Ensure .btn-red is defined as in the previous style.css section */
+.btn-red {
+    background-color: #AB0000;
+    color: white;
+    border: none;
+    padding: 14px 35px; /* More padding for buttons */
+    border-radius: 25px; /* More rounded */
+    cursor: pointer;
+    font-size: 1.05em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    text-decoration: none; /* For the Kembali link */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-red:hover {
+    background-color: #920000;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+}
+
+.btn-red:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Specific button colors if needed (not in current image for these) */
+.btn-green { /* For update button in Update Barang form */
+    background-color: #4CAF50;
+    color: white;
+    /* ... similar styling to btn-red ... */
+}
+.btn-green:hover {
+    background-color: #388E3C;
+}
+
+/* Pop-up / Modal Styling (re-include or adjust from previous version if needed) */
+.modal-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Slightly darker overlay */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 50px 60px; /* More padding */
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); /* Stronger shadow */
+    width: 450px; /* Wider pop-up */
+    max-width: 90%;
+}
+
+.modal-content h2 {
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 2.2em; /* Larger text */
+    font-weight: 700; /* Bolder text */
+}
+
+.modal-content .icon-success {
+    color: #4CAF50;
+    font-size: 6em; /* Even larger icon */
+    margin-bottom: 30px;
+}
+
+.modal-content p {
+    color: #555;
+    margin-top: 20px;
+    font-size: 1.15em;
+}
+
+.modal-content .btn-red {
+    margin-top: 30px; /* Space for modal button */
+}
+
+/* Styling for Peminjaman.png */
+
+/* Adjust main-content top margin if needed, depends on header height */
+/* .main-content {
+    margin-top: 20px;
+} */
+
+.top-actions {
+    margin-bottom: 25px; /* Space between "Kembali" button and table */
+    display: flex;
+    justify-content: flex-start; /* Align to the left */
+}
+
+.btn-red-outline {
+    background-color: transparent;
+    color: #AB0000;
+    border: 2px solid #AB0000;
+    padding: 10px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-red-outline:hover {
+    background-color: #AB0000;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transform: translateY(-2px);
+}
+
+/* Specific buttons for "Lihat" and "Pinjam" in table */
+.actions .btn-lihat {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.actions .btn-pinjam {
+    background-color: #AB0000; /* Red */
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.actions .btn-lihat:hover {
+    background-color: #388E3C; /* Darker green */
+}
+
+.actions .btn-pinjam:hover {
+    background-color: #920000; /* Darker red */
+}
+
+.actions .btn-pinjam[disabled] {
+    background-color: #ccc;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Adjust table headers for this specific page if needed, as some columns are removed */
+/* You might want to remove Tanggal Beli and Pembeli columns from list_barang if they are not in peminjaman */
+/* Example for th if needed: */
+/* table th:nth-child(4), table th:nth-child(5) {
+    display: none; // Hide Tanggal Beli and Pembeli if they exist and you want them gone
+}
+table td:nth-child(4), table td:nth-child(5) {
+    display: none;
+} */
