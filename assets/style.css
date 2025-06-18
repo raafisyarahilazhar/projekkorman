@@ -96,6 +96,13 @@ body {
     padding: 10px 0;
 }
 
+.header-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Konten di dalamnya rata kiri */
+    gap: 20px; /* Jarak antara judul dan tombol */
+}
+
 .header h1 {
     font-size: 2.2em; /* Slightly larger title */
     color: #333;
@@ -104,10 +111,20 @@ body {
 }
 
 .header-right {
+    /* Mengubah dari baris ke kolom vertikal */
+    flex-direction: column;
+    /* Membuat semua item di dalamnya rata kanan */
+    align-items: flex-end;
+    /* Memberi jarak antara foto profil dan baris di bawahnya */
+    gap: 15px; 
+}
+
+.header-actions-row {
+    /* Membuat baris horizontal untuk search dan tombol */
     display: flex;
     align-items: center;
-    gap: 20px; /* Jarak antara Search Bar, Tambah Barang, dan Profil */
-    /* Jarak profil akan diatur oleh margin-left: auto pada .user-profile */
+    /* Memberi jarak antara search bar dan tombol tambah */
+    gap: 20px; 
 }
 
 .search-bar {
@@ -180,6 +197,7 @@ body {
     border: 2px solid #AB0000; /* Mengurangi ketebalan border agar mirip gambar */
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     margin-left: auto; /* Ini yang akan mendorong profil ke paling kanan */
+    margin-bottom: 100px;
 }
 
 .user-profile img { /* Untuk gambar di dalam .user-profile */

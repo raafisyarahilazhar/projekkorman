@@ -128,15 +128,15 @@
             <header class="header">
                 <h1><?php echo htmlspecialchars($barang_nama); ?></h1>
                 <div class="header-right">
-                    <div class="search-bar">
-                        <form action="" method="GET" style="display: flex;">
-                            <input type="hidden" name="id" value="<?php echo htmlspecialchars($barang_id); ?>">
-                            <input type="text" name="search" placeholder="Search" value="<?php echo htmlspecialchars($search_query); ?>">
-                            <button type="submit"><i class="fas fa-search"></i></button>
-                        </form>
-                    </div>
                     <div class="user-profile">
                         <img src="../assets/img/profile-placeholder.jpg" alt="User Profile">
+                    </div>
+                    <div class="header-actions-row">
+                        
+                        <div class="search-bar">
+                            <input type="text" placeholder="Search">
+                            <button type="submit"><i class="fas fa-search"></i></button>
+                        </div>
                     </div>
                 </div>
             </header>

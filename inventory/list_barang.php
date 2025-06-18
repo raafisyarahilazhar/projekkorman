@@ -83,13 +83,16 @@
             <header class="header">
                 <h1>Data Barang</h1>
                 <div class="header-right">
-                    <div class="search-bar">
-                        <input type="text" placeholder="Search">
-                        <button type="submit"><i class="fas fa-search"></i></button>
-                    </div>
-                    <a href="add_barang.php" class="add-item-btn"><i class="fas fa-plus"></i> Tambah Barang</a>
                     <div class="user-profile">
                         <img src="../assets/img/profile-placeholder.jpg" alt="User Profile">
+                    </div>
+                    <div class="header-actions-row">
+                        
+                        <div class="search-bar">
+                            <input type="text" placeholder="Search">
+                            <button type="submit"><i class="fas fa-search"></i></button>
+                        </div>
+                        <a href="add_barang.php" class="add-item-btn"><i class="fas fa-plus"></i> Tambah Barang</a>
                     </div>
                 </div>
             </header>
