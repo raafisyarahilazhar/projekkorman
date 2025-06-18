@@ -81,13 +81,16 @@
         </div>
         <div class="main-content">
             <header class="header">
-                <h1>Data Barang</h1>
+                <div class="header-left">
+                    <h1>Data Barang</h1>
+                    <a href="peminjaman_barang.php" class="add-item-btn pinjam"><i class="fas fa-hand-holding"></i> Peminjaman</a> 
+                </div>
+
                 <div class="header-right">
                     <div class="user-profile">
                         <img src="../assets/img/profile-placeholder.jpg" alt="User Profile">
                     </div>
                     <div class="header-actions-row">
-                        
                         <div class="search-bar">
                             <input type="text" placeholder="Search">
                             <button type="submit"><i class="fas fa-search"></i></button>
@@ -99,7 +102,6 @@
 
             <div class="content-area">
                 <div class="tabs">
-                    <a href="peminjaman_barang.php" class="tab-button active">Peminjaman</a>
                 </div>
 
                 <div class="table-container">

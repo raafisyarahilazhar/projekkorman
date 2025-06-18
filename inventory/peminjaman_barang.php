@@ -39,14 +39,17 @@
             </nav>
         </div>
         <div class="main-content">
-             <header class="header">
-                <h1>Data Barang Yang Bisa Dipinjamkan</h1>
+            <header class="header">
+                <div class="header-left">
+                    <h1>Data Barang Yang Bisa Di Pinjam</h1>
+                    <a href="list_barang.php" class="btn-red-outline">Kembali</a>
+                </div>
+
                 <div class="header-right">
                     <div class="user-profile">
                         <img src="../assets/img/profile-placeholder.jpg" alt="User Profile">
                     </div>
                     <div class="header-actions-row">
-                        
                         <div class="search-bar">
                             <input type="text" placeholder="Search">
                             <button type="submit"><i class="fas fa-search"></i></button>
@@ -57,7 +60,6 @@
 
             <div class="content-area">
                 <div class="top-actions">
-                    <a href="list_barang.php" class="btn-red-outline">Kembali</a>
                 </div>
 
                 <div class="table-container">

@@ -126,13 +126,16 @@
         </div>
         <div class="main-content">
             <header class="header">
-                <h1><?php echo htmlspecialchars($barang_nama); ?></h1>
+                <div class="header-left">
+                    <h1><?php echo htmlspecialchars($barang_nama); ?></h1>
+                    <a href="peminjaman_barang.php" class="btn-red-outline">Kembali</a>
+                </div>
+
                 <div class="header-right">
                     <div class="user-profile">
                         <img src="../assets/img/profile-placeholder.jpg" alt="User Profile">
                     </div>
                     <div class="header-actions-row">
-                        
                         <div class="search-bar">
                             <input type="text" placeholder="Search">
                             <button type="submit"><i class="fas fa-search"></i></button>
@@ -142,10 +145,6 @@
             </header>
 
             <div class="content-area">
-                <div class="top-actions">
-                    <a href="peminjaman_barang.php" class="btn-red-outline">Kembali</a>
-                </div>
-
                 <div class="table-container">
                     <table>
                         <thead>
